@@ -1,0 +1,66 @@
+:root {
+  --primary-rgb: 130 23 253;
+  --primary: rgb(119 4 251);
+  --white: #fff;
+  --white-smoke: #fcfcfc;
+  --placeholder: #cecece;
+  --border: #cccccc;
+  --border-light: #e0e0e0;
+  --border-hover: #d4cfcf;
+  --dark-text: #283252;
+  --medium-text: #757a91;
+  --light-text: #a2a5b9;
+  --widget-grey: #f5f6fa;
+  --fade-grey: #ededed;
+  --dark-border: #393945;
+  --navbar-link-color: hsl(232 14% 68%);
+  --exist-green: #53af70;
+
+  // placeload colors
+  --placeload-nuance-from: rgb(0 0 0 / 7%);
+  --placeload-nuance-to: rgb(0 0 0 / 15%);
+  --placeload-dark-nuance-from: var(--night-light-12);
+  --placeload-dark-nuance-to: var(--night-light-16);
+
+  // Bulgardocs colors
+  --bulgardocs-gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  --bulgardocs-gradient-2: linear-gradient(
+    135deg,
+    #1e40af 0%,
+    #5b21b6 100%
+  );
+  --bulgardocs-blue-secondary: linear-gradient(135deg, #3b82f6, #8b5cf6);
+
+  --bulgardocs-primary-button: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  --bulgardocs-blue: linear-gradient(
+    135deg,
+    #1e3a8a 0%,
+    #4c1d95 100%
+  );
+  --main-primary: #2563eb;
+  --main-primary-dark: #1e40af;
+  --main-purple: #7c3aed;
+  --dark-blue: #04134c;
+  --main-blue: #9091a8;
+  --main-secondary: #3b5bdb;
+  --text-grey-light: #999999;
+  --text-grey: #151414;
+  --text-grey-dark: #333333;
+  --baby-blue: #007bff;
+  --baby-blue-hover: #d2e7ff;
+  --white: #fff;
+  --light-white: #f4f4f4;
+  --black: #000000;
+
+  --warning: #ff0000;
+  --error: #dc3545;
+  --error-light: #ffe9eb;
+  --success: #4CAF50;
+  --processing: #2196F3;
+  --info: #03A9F4;
+
+  // Skeleton loading colors
+  --skeleton-base: rgba(255, 255, 255, 0.1);
+  --skeleton-highlight: rgba(255, 255, 255, 0.2);
+  --skeleton-shine: rgba(255, 255, 255, 0.3);
+}

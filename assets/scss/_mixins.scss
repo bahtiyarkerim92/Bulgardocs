@@ -1,0 +1,110 @@
+@mixin customHorizontalScrollbar($height: 0.8rem,$width: 0.8rem, $color: var(--brand-purple), $border-radius: 1rem) {
+    // Chrome and Firefox
+    scrollbar-color: $color transparent;
+    -webkit-scrollbar-color: $color transparent;
+    -moz-scrollbar-color: $color transparent;
+
+    // Chrome
+    &::-webkit-scrollbar {
+      height: $height;
+      width: $width;
+      background-color: var(--bg-main);
+
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $color;
+      border-radius: $border-radius;
+      width: $width;
+    }
+  
+    // Firefox
+    & {
+      scrollbar-width: thin;
+      
+    }
+    &::-moz-scrollbar-thumb {
+      width: $width;
+      height: $height;
+    }
+    &::-moz-scrollbar-thumb {
+        width: $width;
+        background-color:  var(--bg-main);
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+        border-bottom-left-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+    }
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background-color:  var(--bg-main);
+      border-radius: $border-radius;
+
+    }
+  };
+
+
+  @mixin trim($numLines: null){
+    @if $numLines != null {
+       display:-webkit-box;
+       -webkit-line-clamp:$numLines;
+       -webkit-box-orient:vertical; 
+       overflow:hidden;
+       white-space: pre-wrap;
+    }
+    @else{
+       text-overflow:ellipsis;
+       white-space:nowrap;
+       overflow:hidden;
+       display:block;
+    }
+ }
+
+
+ @keyframes move-right-to-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes move-left-to-right {
+  0% {
+    transform: translateX(-100%);
+    z-index: 1;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes move-top-to-bottom {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes move-bottom-to-top {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@mixin animate-move($direction, $duration: 1s, $ease: ease-in-out, $delay: 0s) {
+  @if $direction == 'right-to-left' {
+    animation: move-right-to-left $duration $ease $delay;
+  } @else if $direction == 'left-to-right' {
+    animation: move-left-to-right $duration $ease $delay;
+  } @else if $direction == 'top-to-bottom' {
+    animation: move-top-to-bottom $duration $ease $delay;
+  } @else if $direction == 'bottom-to-top' {
+    animation: move-bottom-to-top $duration $ease $delay;
+  }
+}

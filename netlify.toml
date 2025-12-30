@@ -1,0 +1,63 @@
+# Global security headers for all routes
+[[headers]]
+  # Apply these headers to all paths
+  for = "/*"
+  [headers.values]
+    # Prevent clickjacking attacks
+    X-Frame-Options = "DENY"
+    
+    # Enable built-in XSS protection in browsers
+    X-XSS-Protection = "1; mode=block"
+    
+    # Prevent browser MIME type sniffing
+    X-Content-Type-Options = "nosniff"
+    
+    # Control referrer information in HTTP headers
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Special headers for blog content
+[[headers]]
+  # Apply to all blog routes
+  for = "/blog/*"
+  [headers.values]
+    # Use stale-while-revalidate for blog content to balance freshness and performance
+    Cache-Control = "public, max-age=60, stale-while-revalidate=600"
+
+# Cache settings for JavaScript files
+[[headers]]
+  # Apply to all JavaScript files
+  for = "/*.js"
+  [headers.values]
+    # Cache JS files for one year since they're fingerprinted
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache settings for CSS files
+[[headers]]
+  # Apply to all CSS files
+  for = "/*.css"
+  [headers.values]
+    # Cache CSS files for one year since they're fingerprinted
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache settings for image files
+[[headers]]
+  # Apply to all image files
+  for = "/images/*"
+  [headers.values]
+    # Cache images for one year to improve performance
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache settings for Nuxt generated files
+[[headers]]
+  # Apply to all Nuxt-generated assets
+  for = "/_nuxt/*"
+  [headers.values]
+    # Cache Nuxt assets for one year since they're fingerprinted
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# =================================================================
+# Image Optimization
+# =================================================================
+[images]
+  # Allow loading images from Firebase Storage
+  remote_images = ["https://firebasestorage.googleapis.com/.*"]

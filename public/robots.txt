@@ -1,0 +1,11 @@
+
+User-agent: *
+User-agent: CCBot
+User-agent: OAI-SearchBot
+Disallow: /dashboard/
+Disallow: /login/
+Disallow: /register/
+Allow: /
+
+
+Sitemap: https://pickup2.com/sitemap.xml

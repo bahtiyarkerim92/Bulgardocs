@@ -1,0 +1,463 @@
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 100;
+  src: url("../fonts/Montserrat-Thin.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 150;
+  src: url("../fonts/Montserrat-LightItalic.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 200;
+  src: url("../fonts/Montserrat-Light.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 250;
+  src: url("../fonts/Montserrat-Italic.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/Montserrat-Regular.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Montserrat-Medium.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/Montserrat-SemiBold.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/Montserrat-Bold.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 800;
+  src: url("../fonts/Montserrat-ExtraBold.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+@font-face {
+  font-display: swap;
+  /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 900;
+  src: url("../fonts/Montserrat-Black.woff2") format("woff2");
+  /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
+@mixin customHorizontalScrollbar($height: 0.8rem, $width: 0.8rem, $color: var(--brand-purple), $border-radius: 1rem) {
+  // Chrome and Firefox
+  scrollbar-color: $color transparent;
+  -webkit-scrollbar-color: $color transparent;
+  -moz-scrollbar-color: $color transparent;
+
+  // Chrome
+  &::-webkit-scrollbar {
+    height: $height;
+    width: $width;
+    background-color: var(--bg-main);
+
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color;
+    border-radius: $border-radius;
+    width: $width;
+  }
+
+  // Firefox
+  & {
+    scrollbar-width: thin;
+
+  }
+
+  &::-moz-scrollbar-thumb {
+    width: $width;
+    height: $height;
+  }
+
+  &::-moz-scrollbar-thumb {
+    width: $width;
+    background-color: var(--bg-main);
+    border-top-left-radius: $border-radius;
+    border-top-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--bg-main);
+    border-radius: $border-radius;
+
+  }
+}
+
+;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  scroll-behavior: smooth;
+}
+
+html {
+  max-width: 100%;
+  font-size: 62.5%; // Root font size 10px=1rem
+  scroll-behavior: smooth;
+  pointer-events: auto;
+  margin: 0;
+  height: 100%;
+  @include customHorizontalScrollbar($height: 0.5rem,
+    $width: 0.5rem,
+    $border-radius: 0.5rem);
+}
+
+html.fr {
+  @media(min-width: $breakpoint-small) {
+    font-size: 55%;
+    /* Reduce for French */
+    margin: 0;
+    padding: 0;
+  }
+
+  @media(min-width: $breakpoint_large) {
+    font-size: 62.5%;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  position: relative;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  overflow-x: hidden;
+  background: #ffffff;
+  color: #1d1d1f;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Sustainable Theme Colors
+:root {
+  --primary: #1358D8;
+  --primary-dark: #054ac8;
+  --secondary: #102C46;
+  --accent: #F9C78F;
+  --alice-blue: #F3F9FD;
+  --slate-blue: #547593;
+  --border-line: #CCD7E1;
+  --text-dark: #1d1d1f;
+  --text-gray: #86868b;
+  --dark-border: #224767;
+}
+
+// Animations
+@keyframes topshap {
+  0% {
+    top: -60px;
+    left: -60px;
+  }
+
+  50% {
+    top: -80px;
+    left: -60px;
+  }
+
+  100% {
+    top: -60px;
+    left: -60px;
+  }
+}
+
+@keyframes bottomshap {
+  0% {
+    bottom: 60px;
+    right: -90px;
+  }
+
+  50% {
+    bottom: 80px;
+    right: -90px;
+  }
+
+  100% {
+    bottom: 60px;
+    right: -90px;
+  }
+}
+
+body * {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", "Montserrat", sans-serif;
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-alice-blue {
+  background-color: var(--alice-blue);
+}
+
+// Theme Shapes
+.it-wrapper {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: var(--primary-dark);
+    border-radius: 50%;
+    z-index: 1;
+    animation: topshap 2s infinite;
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: block;
+    }
+  }
+}
+
+.circalanimat {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 60px;
+    right: -90px;
+    width: 300px;
+    height: 300px;
+    background: var(--accent);
+    border-radius: 50%;
+    z-index: 1;
+    animation: bottomshap 2s infinite;
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: block;
+    }
+  }
+}
+
+.banner-shap {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: var(--primary);
+    bottom: -83px;
+    clip-path: ellipse(56% 50%);
+    z-index: 0;
+
+    @media (max-width: 768px) {
+      clip-path: ellipse(75% 50%);
+    }
+  }
+}
+
+main {
+  min-height: 40rem;
+  position: relative;
+  z-index: 1;
+}
+
+// Sectioning
+section {
+  padding: 10rem 0;
+  background: #ffffff;
+  border: none;
+  margin: 0;
+  position: relative;
+}
+
+.section-primary {
+  background: var(--primary);
+  color: #ffffff;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    color: #ffffff;
+  }
+}
+
+// Buttons
+.btn-apple {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 3rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 0.8rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  font-family: inherit;
+
+  &--primary {
+    background: var(--primary);
+    color: #ffffff;
+
+    &:hover {
+      background: var(--secondary);
+    }
+  }
+
+  &--white {
+    background: #ffffff;
+    color: var(--primary);
+
+    &:hover {
+      background: var(--secondary);
+      color: #ffffff;
+    }
+  }
+
+  &--accent {
+    background: var(--accent);
+    color: var(--secondary);
+
+    &:hover {
+      background: var(--secondary);
+      color: #ffffff;
+    }
+  }
+}
+
+// Card Design
+.card-apple {
+  background: #ffffff;
+  border: 1px solid var(--border-line);
+  border-radius: 1.4rem;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    box-shadow: 0 20px 80px 0px rgba(104, 117, 141, 0.15);
+    transform: translateY(-4px);
+  }
+}
+
+// Typography
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.2;
+
+  @media (min-width: 768px) {
+    font-size: 5.2rem;
+    line-height: 1.15;
+  }
+}
+
+h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.3;
+
+  @media (min-width: 768px) {
+    font-size: 3.6rem;
+  }
+}
+
+h3 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: var(--slate-blue);
+}
+
+.container-apple {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+// Compatibility
+.btn-vibrant {
+  @extend .btn-apple, .btn-apple--primary;
+}
+
+.card-premium {
+  @extend .card-apple;
+}
